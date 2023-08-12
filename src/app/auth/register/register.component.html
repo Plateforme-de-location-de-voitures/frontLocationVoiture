@@ -1,0 +1,55 @@
+<!-- main content -->
+<main class="main main--sign" data-bg="img/bg/bg.png">
+    <!-- registration form -->
+    <div class="sign">
+        <div class="sign__content">
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="sign__form">
+                <h2>Création de compte</h2>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Nom</label>
+                  <input type="text" class="sign__input" id="nom" name="nom" formControlName="nom" [(ngModel)]="registerForm.nom" required>
+                  <div class="sign__" [hidden]="nom.valid || nom.pristine && !nom.touched ">Le nom est obligatoire</div>
+                </div>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Prenom</label>
+                  <input type="text" class="sign__input" id="prenom" name="prenom" formControlName="prenom" [(ngModel)]="registerForm.prenom" required>
+                  <div class="sign__" [hidden]="prenom.valid || prenom.pristine && !prenom.touched ">Le prenom obligatoire</div>
+                </div>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Email</label>
+                  <input type="email" class="sign__input" id="email" name="email" formControlName="email" [(ngModel)]="registerForm.email" required>
+                  <div class="sign__" [hidden]="email.valid || email.pristine && !email.touched ">Email obligatoire</div>
+                </div>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Mot de passe</label>
+                  <input type="password" class="sign__input" id="password" name="password" formControlName="password" [(ngModel)]="registerForm.password" required>
+                  <div class="sign__" [hidden]="password.valid || password.pristine && !password.touched ">Mot de passe obligatoire</div>
+                </div>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Téléphone</label>
+                  <input type="text" class="sign__input" id="telephone" name="telephone" formControlName="telephone" [(ngModel)]="registerForm.telephone" placeholder="+228 93434343" required>
+                  <div class="sign__" [hidden]="telephone.valid || telephone.pristine && !telephone.touched ">Le numéro est obligatoire</div>
+                </div>
+
+                <div class="sign__group">
+                  <label for="role" class="sign_input">Compte</label>
+                  <select name="role" id="role" class="sign__input" [(ngModel)]="selectedRole" [ngModelOptions]="{standalone: true}">
+                      <option value="Client" class="role">Client</option>
+                      <option value="Proprietaire" class="role">Propriétaire</option>
+                  </select>
+                </div>
+
+                <button class="sign__btn" [disabled]="registerForm.invalid" type="submit"><span>S'inscrire</span></button>
+
+                <span class="sign__text">Déjà un compte? <a routerLink="/login">Se connecter</a></span>
+            </form>
+        </div>
+    </div>
+    <!-- end registration form -->
+</main>
+<!-- end main content -->

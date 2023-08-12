@@ -1,0 +1,33 @@
+<!-- main content -->
+<main class="main main--sign" data-bg="img/bg/bg.png">
+    <!-- sign in -->
+    <div class="sign">
+        <div class="sign__content">
+
+            <!-- authorization form -->
+            <form [formGroup]="LoginForm" class="sign__form" (ngSubmit)="login()">
+                <h1>Connexion</h1>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Email</label>
+                  <input type="email" class="sign__input" id="email" placeholder="email@miabecar.com" name="email" formControlName="email" [(ngModel)]="LoginForm.email" required>
+                  <div class="sign__" [hidden]="email.valid || email.pristine && !email.touched ">Email obligatoire</div>
+                </div>
+
+                <div class="sign__group">
+                  <label for="" class="sign_input">Password</label>
+                  <input type="password" class="sign__input" id="password" name="password" formControlName="password" [(ngModel)]="LoginForm.password" required>
+                  <div class="sign__" [hidden]="password.valid || password.pristine && !password.touched ">Password obligatoire</div>
+                </div>
+
+                <button class="sign__btn" [disabled]="LoginForm.invalid" type="submit"><span>Connecter</span></button>
+
+                <span class="sign__text">Pas de compte? <a routerLink="/register">S'inscrire</a></span>
+
+            </form>
+            <!-- end authorization form -->
+        </div>
+    </div>
+    <!-- end sign in -->
+</main>
+<!-- end main content -->

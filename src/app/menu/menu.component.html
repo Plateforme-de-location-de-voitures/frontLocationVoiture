@@ -1,0 +1,61 @@
+<div *ngIf="user.role.code === 'ROLE_PROPRIETAIRE'">
+  <ul class="nav nav-tabs profile__tabs" id="profile__tabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="" data-bs-toggle="tab" data-bs-target="#tab-1" type="button" role="tab" aria-controls="tab-1" aria-selected="false"><a routerLink="/voitures">Voitures</a></button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="" data-bs-toggle="tab" data-bs-target="#tab-2" type="button" role="tab" aria-controls="tab-2" aria-selected="false"><a routerLink="/galeries-voitures">Galeries voitures</a></button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="" data-bs-toggle="tab" data-bs-target="#tab-3" type="button" role="tab" aria-controls="tab-3" aria-selected="false"><a routerLink="/reservations">Réservations</a></button>
+    </li>
+  </ul>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Récupérer tous les boutons de la liste
+    const tabs = document.querySelectorAll(".nav-item button");
+
+    // Ajouter un gestionnaire d'événement pour chaque bouton
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        // Supprimer la classe "active" de tous les boutons
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Ajouter la classe "active" au bouton cliqué
+        this.classList.add("active");
+      });
+    });
+  });
+
+  </script>
+</div>
+
+<div *ngIf="user.role.code === 'ROLE_CLIENT'">
+  <ul class="nav nav-tabs profile__tabs" id="profile__tabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="" data-bs-toggle="tab" data-bs-target="#tab-3" type="button" role="tab" aria-controls="tab-3" aria-selected="false"><a routerLink="/reservations">Réservations</a></button>
+    </li>
+  </ul>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Récupérer tous les boutons de la liste
+    const tabs = document.querySelectorAll(".nav-item button");
+
+    // Ajouter un gestionnaire d'événement pour chaque bouton
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        // Supprimer la classe "active" de tous les boutons
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Ajouter la classe "active" au bouton cliqué
+        this.classList.add("active");
+      });
+    });
+  });
+
+  </script>
+</div>
