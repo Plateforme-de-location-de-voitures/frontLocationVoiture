@@ -79,6 +79,53 @@ export class ReservationsComponent implements OnInit {
     const dateReservationValue = this.reservationForm.value.dateReservation;
     const dateRetourValue = this.reservationForm.value.dateRetour;
 
+    const conflictingReservation = this.reservations.find(reservation => {
+      const reservationDateReservation = reservation.dateReservation;
+      const reservationDateRetour = reservation.dateRetour;
+
+      if (
+        (dateReservationValue >= reservationDateReservation && dateReservationValue <= reservationDateRetour) ||
+        (dateRetourValue >= reservationDateReservation && dateRetourValue <= reservationDateRetour) ||
+        (dateReservationValue <= reservationDateReservation && dateRetourValue >= reservationDateRetour)
+      ) {
+        return true;
+      }
+
+      return false;
+    });
+
+    if (conflictingReservation) {
+      this.erreur = true;
+      this.affichage = 3;
+      this.message = 'Les dates sélectionnées coïncident avec une réservation existante.';
+    } else if (this.compareDates(dateReservationValue, dateRetourValue) === -1) {
+      this.reservationData.append('dateReservation', dateReservationValue);
+      this.reservationData.append('dateRetour', dateRetourValue);
+      this.reservationData.append('client', this.user.id);
+      this.reservationData.append('voiture', voitureID);
+      this.reservationData.append('statutReservation', 'false');
+
+      this.reservationService.updateReservation(id, this.reservationData)
+        .subscribe(() => {
+          this.reservationClientList();
+        });
+    } else if (this.compareDates(dateReservationValue, dateRetourValue) === 1) {
+      this.erreur = true;
+      this.affichage = 3;
+      this.message = 'La date de réservation ne doit pas être supérieure à la date de retour.';
+    } else {
+      this.erreur = true;
+      this.affichage = 3;
+      this.message = 'La date de réservation ne doit pas être égale à la date de retour.';
+    }
+  }
+
+
+  /*modifierReservation(id: number, voitureID: any): void {
+    this.affichage = 0;
+    const dateReservationValue = this.reservationForm.value.dateReservation;
+    const dateRetourValue = this.reservationForm.value.dateRetour;
+
     if (this.compareDates(dateReservationValue, dateRetourValue) === -1) {
       this.reservationData.append('dateReservation', dateReservationValue);
       this.reservationData.append('dateRetour', dateRetourValue);
@@ -99,7 +146,7 @@ export class ReservationsComponent implements OnInit {
       this.affichage = 3;
       this.message = 'La date réservation ne doit pas être égale à la date retour';
     }
-  }
+  }*/
 
   compareDates(date1: Date, date2: Date): number {
     if (date1 < date2) {
@@ -134,4 +181,5 @@ export class ReservationsComponent implements OnInit {
         this.reservationProprietaireList()
       })
   }
+
 }

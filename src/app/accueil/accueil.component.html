@@ -82,58 +82,6 @@
     </div>
     <!-- end voitures -->
 
-    <!-- paginator -->
-    <div class="row">
-      <div class="col-12">
-        <div class="paginator">
-          <span class="paginator__pages">6 from 129</span>
-
-          <ul class="paginator__list-mobile">
-            <li>
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z" />
-                </svg>
-                <span>Prev</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span>Next</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-
-          <ul class="paginator__list">
-            <li>
-              <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z" />
-                </svg></a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><span>...</span></li>
-            <li><a href="#">18</a></li>
-            <li><a href="#">19</a></li>
-            <li>
-              <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
-                </svg></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- end paginator -->
 </div>
 
 <!-- resultats recherche par marque -->
@@ -142,7 +90,7 @@
     <div class="row">
       <div class="col-12">
         <div class="main__title main__title--page">
-          <button class="btn btn-success" (click)="onRetourPrincipale()">Retour</button>
+          <button class="btn btn-success" (click)="retourRecherche()">Retour</button>
         </div>
 
         <div class="main__title main__title--page">
@@ -190,58 +138,6 @@
     <!-- end voitures par marque -->
   </div>
 
-  <!-- paginator -->
-  <div class="row">
-    <div class="col-12">
-      <div class="paginator">
-        <span class="paginator__pages">6 from 129</span>
-
-        <ul class="paginator__list-mobile">
-          <li>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                  d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z" />
-              </svg>
-              <span>Prev</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Next</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                  d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-
-        <ul class="paginator__list">
-          <li>
-            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                  d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z" />
-              </svg></a>
-          </li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><span>...</span></li>
-          <li><a href="#">18</a></li>
-          <li><a href="#">19</a></li>
-          <li>
-            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                  d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
-              </svg></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!-- end paginator -->
 </div>
 
 <!-- details voiture  -->
@@ -251,16 +147,16 @@
     <!-- breadcrumb -->
     <div class="col-12">
       <ul class="breadcrumbs">
-        <li class="breadcrumbs__item"><a href="index.html">Home</a></li>
-        <li class="breadcrumbs__item"><a href="cars.html">Explore cars</a></li>
-        <li class="breadcrumbs__item breadcrumbs__item--active">Toyota RAV4</li>
+        <li class="breadcrumbs__item"><a href="index.html">Accueil</a></li>
+        <li class="breadcrumbs__item"><a href="cars.html">Voitures disponibles</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--active">Détails</li>
       </ul>
     </div>
     <!-- end breadcrumb -->
       <!-- title -->
       <div class="col-12">
         <br>
-        <button type="button" class="btn btn-warning btn-rounded" (click)="onRetourVoiture()">Retour</button>
+        <button type="button" class="btn btn-primary btn-rounded" (click)="onRetourVoiture()">Retour</button>
         <div class="main__title main__title--page">
           <h1>{{ voiture.modele.nom }} {{ voiture.modele.marque.nom }}</h1>
         </div>
@@ -268,56 +164,9 @@
 
       <!-- end title -->
       <!-- details -->
-      <div class="col-12 col-lg-7">
+      <div class="col-10 col-lg-5">
         <div class="details">
-          <div class="splide splide--details details__slider">
-            <div class="splide__arrows">
-              <button class="splide__arrow splide__arrow--prev" type="button"><svg
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z">
-                  </path>
-                </svg></button>
-              <button class="splide__arrow splide__arrow--next" type="button"><svg
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z">
-                  </path>
-                </svg></button>
-            </div>
-
-            <div class="splide__track">
-              <ul class="splide__list">
-                <li class="splide__slide">
-                  <img src="assets/img/cars/1-1-big.jpg" alt="">
-                </li>
-                <li class="splide__slide">
-                  <img src="assets/img/cars/1-2-big.jpg" alt="">
-                </li>
-                <li class="splide__slide">
-                  <img src="assets/img/cars/1-3-big.jpg" alt="">
-                </li>
-                <li class="splide__slide">
-                  <img src="assets/img/cars/1-4-big.jpg" alt="">
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <ul id="thumbnails" class="thumbnails">
-            <li class="thumbnail">
-              <img src="{{this.APIEndpoint + voiture.imagePrincipal }}" alt="">
-            </li>
-            <li class="thumbnail">
-              <img src="{{this.APIEndpoint + voiture.imagePrincipal }}" alt="">
-            </li>
-            <li class="thumbnail">
-              <img src="{{this.APIEndpoint + voiture.imagePrincipal }}" alt="">
-            </li>
-            <li class="thumbnail">
-              <img src="{{this.APIEndpoint + voiture.imagePrincipal }}" alt="">
-            </li>
-          </ul>
+          <img src="{{this.APIEndpoint + voiture.imagePrincipal }}">
         </div>
       </div>
       <!-- end details -->
@@ -327,20 +176,11 @@
         <div class="offer">
           <span class="offer__title">Détails</span>
           <div class="offer__wrap">
-            <span class="offer__price">50.000F <sub>/ Jour</sub></span>
-            <button class="offer__favorite" type="button" aria-label="Add to favorite"><svg
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                  d="M20.16,5A6.29,6.29,0,0,0,12,4.36a6.27,6.27,0,0,0-8.16,9.48l6.21,6.22a2.78,2.78,0,0,0,3.9,0l6.21-6.22A6.27,6.27,0,0,0,20.16,5Zm-1.41,7.46-6.21,6.21a.76.76,0,0,1-1.08,0L5.25,12.43a4.29,4.29,0,0,1,0-6,4.27,4.27,0,0,1,6,0,1,1,0,0,0,1.42,0,4.27,4.27,0,0,1,6,0A4.29,4.29,0,0,1,18.75,12.43Z" />
-              </svg></button>
+            <span class="offer__price">{{ voiture.prix }} F CFA<sub> / Jour</sub></span>
               <button type="button" class="btn btn-success" (click)="reserver(voiture.id)"><span>Réserver</span></button>
           </div>
 
           <ul class="offer__list">
-            <li>
-              <span class="offer__list-name">Prix</span>
-              <span class="offer__list-value offer__list-value--dark">{{ voiture.prix }}</span>
-            </li>
             <li>
               <span class="offer__list-name">Couleur</span>
               <span class="offer__list-value">{{ voiture.couleur }}</span>
@@ -351,9 +191,12 @@
             </li>
             <li>
               <span class="offer__list-name">Puissance</span>
-              <span class="offer__list-value">{{ voiture.puissance }} km/h</span>
+              <span class="offer__list-value">{{ voiture.puissance }} ch</span>
             </li>
-
+            <li>
+              <span class="offer__list-name">Téléphone propriétaire</span>
+              <span class="offer__list-value offer__list-value--dark">{{ voiture.proprietaire.telephone }} </span>
+            </li>
           </ul>
 
         </div>

@@ -28,6 +28,7 @@ export class VoituresComponent implements OnInit {
   imagePath: any;
   imgURL: any;
   user: any
+  messageSucces: string | null = null;
 
   constructor(private voitureService: VoitureService,
     private modeleService: ModeleService,
@@ -137,6 +138,10 @@ export class VoituresComponent implements OnInit {
         if(response.id > 0) {
           this.listeVoitures();
           this.onShowListe()
+          this.messageSucces = "La voiture a été ajoutée avec succès.";
+          setTimeout(() => {
+            this.messageSucces = null; // Efface le message après deux secondes
+          }, 2000);
         }
         else {
           this.erreur = false;
@@ -176,6 +181,10 @@ export class VoituresComponent implements OnInit {
         if (response.id > 0) {
           this.listeVoitures();
           this.onShowListe();
+          this.messageSucces = "La voiture a été modifiée avec succès.";
+          setTimeout(() => {
+            this.messageSucces = null; // Efface le message après deux secondes
+          }, 2000);
         } else {
           this.erreur = false;
           this.messageErreur = "Erreur lors de la modification, voiture déjà existante";
@@ -224,15 +233,15 @@ export class VoituresComponent implements OnInit {
   supprimerVoiture(id: number): void {
     console.log(id);
     this.voitureService.deleteVoiture(id).subscribe(
-      response => {
-        console.log(response);
+      () => {
+        console.log("La voiture a été supprimée avec succès.");
         this.listeVoitures();
         this.onShowListe();
       },
       error => {
-        if (error.status === 403) {
+        if (error.error.detail === "Impossible de supprimer la voiture car elle est liée à une réservation qui n'est pas terminée.") {
           this.erreur = false;
-          this.messageErreur = "Impossible de supprimer la voiture. Elle est liée à une réservation en cours.";
+          this.messageErreur = "Impossible de supprimer la voiture. Elle est liée à une réservation qui n'est pas terminée.";
         } else if (error.status === 404) {
           console.error("La voiture demandée n'a pas été trouvée.");
         } else {

@@ -46,7 +46,7 @@ export class ReservationService {
 
   // Mettre à jour une réservation existante
   updateReservation(reservationId: number, reservationData: FormData): Observable<Reservation> {
-    return this.httpClient.put<Reservation>(this.url + 'reservation/update/' + reservationId, reservationData + '/');
+    return this.httpClient.put<Reservation>(this.url + 'reservation/update/' + reservationId + '/', reservationData);
   }
 
   // Supprimer une réservation en utilisant son ID
@@ -61,7 +61,7 @@ export class ReservationService {
 
   // Mettre fin à une réservation en utilisant son ID
   finishReservation(reservationId: number): Observable<any> {
-    return this.httpClient.put(this.url + 'fin/' + reservationId, {} + '/');
+    return this.httpClient.put(this.url + 'fin/' + reservationId + '/', {} );
   }
 
   // Rechercher les voitures disponibles entre deux dates de réservation

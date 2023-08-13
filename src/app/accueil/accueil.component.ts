@@ -89,6 +89,10 @@ export class AccueilComponent implements OnInit {
     this.affichage = 1
   }
 
+  retourRecherche(){
+    this.affichage = 2
+  }
+
   onRetourVoiture(){
     this.affichage = 2
   }
@@ -108,6 +112,7 @@ export class AccueilComponent implements OnInit {
       }
     }
     this.voituresParMarque = tempVoituresParMarque;
+    this.marque = '';
     this.affichage = 4;
   }
 
@@ -142,9 +147,9 @@ export class AccueilComponent implements OnInit {
             console.log(error);
           }
         );
-
     } else {
-      this.router.navigate(['/login']);
+      this.cookieService.set('voiture', id)
+      this.router.navigate(['/login'], { queryParams: { ajout: true } });
     }
   }
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Personne } from 'src/app/models/users';
 import { UsersService } from 'src/app/services/users.service';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,16 @@ export class LoginComponent implements OnInit {
 
   inscriptionNonReussie:boolean = false;
   erreur: boolean = true;
-  user: Personne = new Personne();
+  user: any;
   message: string = "";
   userData: FormData = new  FormData();
+  reservationData: FormData = new FormData()
 
   constructor(private userService: UsersService,
     private cookieService: CookieService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute,
+    private reservationService: ReservationService) { }
 
   LoginForm: any;
 
@@ -63,7 +67,33 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/voitures'])
         }else{
           this.cookieService.set('user', JSON.stringify(this.user))
-          this.router.navigate(['/'])
+          this.route.queryParams.subscribe((params: { [x: string]: any; }) => {
+            if (params['ajout']) {
+              const dateReservationValue = this.cookieService.get('dateReservation');
+              const dateRetourValue = this.cookieService.get('dateRetour');
+              const voitureIDValue = this.cookieService.get('voiture')
+
+              this.reservationData.append('voiture', voitureIDValue);
+              this.reservationData.append('client', this.user.id);
+              this.reservationData.append('dateReservation', dateReservationValue);
+              this.reservationData.append('dateRetour', dateRetourValue);
+              this.reservationData.append('statutReservation', 'false');
+
+              this.reservationService.createReservation(this.reservationData)
+                .subscribe(
+                  (response) => {
+                    console.log(response);
+                    this.router.navigate(['/reservations']);
+                  },
+                  (error) => {
+                    console.log(error);
+                  }
+                );
+            }else{
+              this.cookieService.set('user', JSON.stringify(this.user))
+              this.router.navigate(['/'])
+            }
+          })
         }
       }
     )
